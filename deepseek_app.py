@@ -13,7 +13,7 @@ from langchain.chains.llm import LLMChain
 from langchain.chains.combine_documents.stuff import StuffDocumentsChain
 from langchain.chains import RetrievalQA
 
-
+torch.classes.__path__ = [] # add this line to manually set it to empty. 
 @st.cache_resource
 def get_embedder():
     """Cache the embedding model to avoid reloading on every run."""
