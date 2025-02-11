@@ -1,4 +1,13 @@
 import streamlit as st
+import pymupdf
+from langchain_community.document_loaders import PyPDFLoader
+#from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+import json
+from langchain.chains import StuffDocumentsChain, LLMChain
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain.chains import RetrievalQA
 def load_pdf(file):
     with open("temp.pdf", "wb") as f:
         f.write(file.getvalue())
@@ -94,5 +103,3 @@ def main():
                 st.write(response)
     else:
         st.info("📥 Please upload a PDF file to proceed.")
-if __name__ == "__main__":
-    main()
