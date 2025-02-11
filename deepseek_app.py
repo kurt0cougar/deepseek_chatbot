@@ -12,7 +12,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains.llm import LLMChain
 from langchain.chains.combine_documents.stuff import StuffDocumentsChain
 from langchain.chains import RetrievalQA
-
+import torch
 torch.classes.__path__ = [] # add this line to manually set it to empty. 
 @st.cache_resource
 def get_embedder():
