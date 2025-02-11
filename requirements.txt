@@ -3,4 +3,4 @@ pymupdf
 langchain-community 
 faiss-cpu 
 ollama
-langchain-huggingface
+langchain_huggingface
