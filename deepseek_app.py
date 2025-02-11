@@ -103,3 +103,5 @@ def main():
                 st.write(response)
     else:
         st.info("📥 Please upload a PDF file to proceed.")
+if __name__ == "__main__":
+    main()
