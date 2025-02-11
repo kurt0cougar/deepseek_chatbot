@@ -4,3 +4,4 @@ langchain-community
 faiss-cpu 
 ollama
 langchain_huggingface
+pypdf
