@@ -8,6 +8,7 @@ from langchain.chains import StuffDocumentsChain, LLMChain
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain.chains import RetrievalQA
+import os
 def load_pdf(file):
     with open("temp.pdf", "wb") as f:
         f.write(file.getvalue())
