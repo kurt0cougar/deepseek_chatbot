@@ -1,3 +1,4 @@
+import streamlit as st
 def load_pdf(file):
     with open("temp.pdf", "wb") as f:
         f.write(file.getvalue())
