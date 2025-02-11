@@ -1,0 +1,5 @@
+streamlit 
+pymupdf 
+langchain-community 
+faiss-cpu 
+ollama
