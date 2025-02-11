@@ -73,7 +73,25 @@ def build_qa_chain(retriever, llm):
         retriever=retriever,
         return_source_documents=True,
     )
+    
+def process_pdf(file):
+    """Process the PDF asynchronously using ThreadPoolExecutor."""
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        future_docs = executor.submit(load_pdf, file)
+        docs = future_docs.result()
 
+        future_chunks = executor.submit(chunk_documents, docs)
+        documents = future_chunks.result()
+
+    # Serialize full document objects instead of just 'page_content'
+    docs_json = json.dumps(
+        [{"page_content": doc.page_content, "metadata": doc.metadata} for doc in documents]
+    )
+
+    # Create retriever using cached FAISS index
+    retriever = create_retriever(docs_json)
+    return retriever
+    
 def main():
     st.set_page_config(layout="wide")
     st.title("🚀 Fast RAG-based QA with DeepSeek R1")
